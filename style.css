@@ -1,0 +1,118 @@
+:root{
+    --Green-400: rgb(91, 164, 164);
+    --Green-50: rgb(239, 250, 250);
+    --Gray-400: rgb(123, 142, 142);
+    --Green-900: rgb(44, 58, 58);
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: none;
+}
+body{
+    min-height: 100vh;
+    padding-bottom: 50px;
+    font-family: League Spartan, Arial, Helvetica, sans-serif;
+}
+header{
+    margin-bottom: 40px;
+}
+.banner img{
+    width: 100%;
+}
+picture{
+    height: 100%;
+    background-color: var(--Green-400);
+    display: flex;
+}
+
+.job-card.featured-border {
+    border-left: 5px solid var(--Green-400);
+}
+.job-grid{
+    padding: 0 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.job-card{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 3px 3px 12px rgba(91, 164, 164, 0.3);
+    padding: 15px 30px;
+    height: 130px;
+}
+.lhs{
+    display: flex;
+    gap: 50px;
+}
+
+/*JOB INFO TOP*/
+.job-info-top{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.company-name{
+    font-weight: 700;
+    color: var(--Green-400);
+}
+.btn-new{
+    background-color: var(--Green-400);
+    color: var(--Green-50);
+    border: none;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-weight: 600;
+}
+.btn-featured{
+    background-color: var(--Green-900);
+    font-weight: 600;
+    color: var(--Green-50);
+    border: none;
+    padding: 5px 10px;
+    border-radius: 15px;
+}
+
+/*JOB INFO BOTTOM*/
+.job-info-bottom{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.job-info-bottom p{
+    color: var(--Gray-400);
+}
+.job-info-bottom span{
+    height: 4px;
+    width: 4px;
+    border-radius: 5px;
+    background-color: var(--Gray-400);
+    opacity: 0.5;
+}
+
+/*JOB INFO MID*/
+.job-info-mid p{
+    font-size: 18px;
+    font-weight: 600;
+}
+.job-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 4px 0;
+}
+
+.filter-items{
+    display: flex;
+    gap: 10px;
+}
+.filter-button{
+    background-color: var(--Green-50);
+    font-weight: 600;
+    color: var(--Green-400);
+    border: none;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
