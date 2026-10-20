@@ -2,60 +2,93 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="stylesheet" href="style.css">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  
-  <title>Frontend Mentor | Job Listings</title>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | Job Listings (Queue Data Structure)</title>
 </head>
 <body>
-    <header>
-      <picture>
-        <source srcset="images\bg-header-mobile.svg" media="(max-width: 425px)">
-        <img src="images\bg-header-desktop.svg" alt="A lovely bouquet of flowers">
-      </picture>
-    </header>
+  <header class="header" role="banner"></header>
 
-    <!-- JOB LISTING CARDS -->
+  <main class="container">
+    <div class="filter-bar" id="filter-bar">
+      <div class="filter-container" id="filter-container"></div>
+      <button class="clear-btn" id="clear-btn" type="button">Clear</button>
+    </div>
 
-    <section class="job-grid">
-      <div class="job-card">
-        <div class="lhs">
-            <div class="img">
-            <img src="/images/loop-studios.svg" alt="">
+    <!-- Queue Operations Bar -->
+    <div class="queue-bar">
+      <div class="queue-info">
+        <span class="queue-pill">Queue Size: <strong id="queue-count">0</strong></span>
+        <span class="queue-front-pill" id="queue-front-preview">Front: <em>Empty</em></span>
+      </div>
+      <div class="queue-actions">
+        <button type="button" class="btn-queue btn-add" id="toggle-enqueue-btn">+ Enqueue Job</button>
+        <button type="button" class="btn-queue btn-remove" id="dequeue-btn">- Dequeue (Remove Front)</button>
+      </div>
+    </div>
+
+    <!-- Inline Enqueue Form -->
+    <form class="job-form" id="job-form" style="display: none;">
+      <h3>Enqueue New Job</h3>
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="company">Company Name</label>
+          <input type="text" id="company" required placeholder="e.g. Acme Corp">
         </div>
-        <div class="job-info">
-            <div class="job-info-top">
-            <p class="company-name">Photosnap</p>
-            <button class="btn-new">NEW!</button>
-            <button class="btn-featured">FEATURED</button>
-            </div>
-            <div class="job-info-mid">
-            <p class="position">Senior Frontend Developer</p>
-            </div>
-            <div class="job-info-bottom">
-            <p class="time-since-post">1d ago</p>
-            <span></span>
-            <p class="job-period">Full Time</p>
-            <span></span>
-            <p class="job-classification">USA only</p>
-            </div>
+        <div class="form-group">
+          <label for="position">Position Title</label>
+          <input type="text" id="position" required placeholder="e.g. Frontend Engineer">
         </div>
+        <div class="form-group">
+          <label for="role">Role</label>
+          <select id="role">
+            <option value="Frontend">Frontend</option>
+            <option value="Backend">Backend</option>
+            <option value="Fullstack">Fullstack</option>
+          </select>
         </div>
-        
-        <div class="filter-items">
-            <button class="filter-button">Frontend</button>
-            <button class="filter-button">Senior</button>
-            <button class="filter-button">HTML</button>
-            <button class="filter-button">CSS</button>
+        <div class="form-group">
+          <label for="level">Level</label>
+          <select id="level">
+            <option value="Junior">Junior</option>
+            <option value="Midweight">Midweight</option>
+            <option value="Senior">Senior</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="contract">Contract</label>
+          <select id="contract">
+            <option value="Full Time">Full Time</option>
+            <option value="Part Time">Part Time</option>
+            <option value="Contract">Contract</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="location">Location</label>
+          <input type="text" id="location" required placeholder="e.g. Remote, USA Only">
+        </div>
+        <div class="form-group full-width">
+          <label for="tags">Languages &amp; Tools (comma-separated)</label>
+          <input type="text" id="tags" placeholder="e.g. JavaScript, React, Sass">
+        </div>
+        <div class="form-group form-checkboxes full-width">
+          <label><input type="checkbox" id="is-new" checked> Mark as NEW!</label>
+          <label><input type="checkbox" id="is-featured"> Mark as FEATURED</label>
         </div>
       </div>
-    </section>
-    <script src="index.js"></script>
+      <div class="form-buttons">
+        <button type="submit" class="btn-queue btn-submit">Submit to Queue</button>
+        <button type="button" class="btn-cancel" id="cancel-form-btn">Cancel</button>
+      </div>
+    </form>
+
+    <section class="job-grid" id="job-grid" aria-label="Job Listings"></section>
+  </main>
+
+  <script src="index.js"></script>
 </body>
 </html>
