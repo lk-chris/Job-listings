@@ -197,6 +197,24 @@ const FALLBACK_DATA = [
   }
 ];
 
+const AVAILABLE_LOGOS = [
+  './images/photosnap.svg',
+  './images/manage.svg',
+  './images/account.svg',
+  './images/myhome.svg',
+  './images/loop-studios.svg',
+  './images/faceit.svg',
+  './images/shortly.svg',
+  './images/insure.svg',
+  './images/eyecam-co.svg',
+  './images/the-air-filter-company.svg'
+];
+
+function getRandomLogo() {
+  const randomIndex = Math.floor(Math.random() * AVAILABLE_LOGOS.length);
+  return AVAILABLE_LOGOS[randomIndex];
+}
+
 let activeFilters = [];
 
 // DOM References
@@ -367,7 +385,7 @@ jobForm.addEventListener('submit', (e) => {
     contract,
     location,
     postedAt: 'Just now',
-    logo: './images/photosnap.svg',
+    logo: getRandomLogo(),
     new: isNew,
     featured: isFeatured,
     languages: parsedTags,
